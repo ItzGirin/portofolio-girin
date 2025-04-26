@@ -98,7 +98,9 @@ img {
 
 /* Hero Section */
 .hero {
+  --hero-bg-image: url('https://media-hosting.imagekit.io/f2418710dcc5473d/screenshot_1745654914605.png?Expires=1840262912&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=Yj-rOQVhv8omeGmFE5-NZ-jbyCd6wb2KUCic~D-tZnZR~KVBlIV0ZO~dCfBTAd1KvjZaDQkMbYvGR2MwFdFWb0gHhC025bSiSSTCcRvog8-sr-tD206BCeUMJSJ2TrDWPMZAc0kHnGEdZov57nbUJO4upVsHE8hmez04pg99Q13vMJT0SnfH9wBdZ27ntzxxb-poWsyK367I5hZFqPdyhN2RQ98pvIU2grieuxBNKiOrauIets~MJfD6T0RAob1wRypd~OYhUM-hBWvSlyPex7PpJVv3WM7QNq8Kb1OmKisUQ3osdkF45BCVf0CPQ0VMly~85ssAx8aHUqPIjYTepw__');
   position: relative;
+  background-image: var(--hero-bg-image);
   background-size: cover;
   background-position: center;
   color: #fff;
@@ -511,7 +513,7 @@ img {
 }
 
 .gallery-items img {
-  max-width: 300px;
+  max-width: 450px;
   height: auto;
   border-radius: 8px;
   display: block;
