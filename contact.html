@@ -5,11 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Contact - Girindhra Luhpari Abdullah</title>
   <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="active-tab.css" />
 </head>
 <body>
   <nav class="main-nav">
     <div class="container">
-      <a href="#" class="logo"Girindhra Luhpari Abdullah</a>
+      <a href="#" class="logo">Girindhra Luhpari Abdullah</a>
       <ul class="nav-links">
         <li><a href="index.html">Beranda</a></li>
         <!-- <li><a href="#">Blog</a></li> -->
@@ -17,7 +18,7 @@
         <li><a href="fotografi.html">FOTO</a></li>
         <li><a href="desain-website.html">WEBSITE</a></li>
         <!-- <li><a href="layanan.html">Layanan</a></li> -->
-        <li><a href="contact.html">Contact</a></li>
+        <li><a href="contact.html" class="active">Contact</a></li>
       </ul>
     </div>
   </nav>
@@ -74,13 +75,13 @@
   <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
   <script>
     (function(){
-      emailjs.init("service_0tgboxl"); // Replace with your EmailJS user ID
+      emailjs.init("rwtBxYPpf3Yw1-dPz"); // EmailJS user/public key
     })();
 
     document.getElementById('contactForm').addEventListener('submit', function(e) {
       e.preventDefault();
 
-      emailjs.sendForm('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', this)
+      emailjs.sendForm('service_0tgboxl', 'template_197yc9q', this)
         .then(function() {
           alert('Pesan Anda telah berhasil dikirim. Terima kasih telah menghubungi kami, ' + document.getElementById('name').value + '!');
           document.getElementById('contactForm').reset();
