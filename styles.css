@@ -552,6 +552,55 @@ img {
   display: block;
 }
 
+/* Responsive gallery for small screens */
+@media (max-width: 480px) {
+  .gallery-items {
+    flex-direction: row !important;
+    gap: 10px !important;
+    align-items: center !important;
+    justify-content: center !important;
+    flex-wrap: wrap !important;
+    width: 100% !important;
+  }
+  .gallery-items a {
+    width: 30% !important;
+    max-width: 30% !important;
+    margin: 0 5px 15px 5px !important;
+  }
+  .gallery-items img {
+    max-width: 100% !important;
+    height: auto !important;
+    display: block !important;
+    border-radius: 8px !important;
+  }
+  /* Additional fixes for mobile layout */
+  .hero-content h1, .hero-content p {
+    text-align: center;
+  }
+  .service-item, .advantage-item {
+    margin-bottom: 20px;
+  }
+  .story-content {
+    flex-direction: column;
+    align-items: center;
+  }
+  .story-text {
+    padding-left: 0 !important;
+    max-width: 100%;
+  }
+  .testimonial-content {
+    font-size: 1.2rem;
+    padding: 0 20px;
+  }
+  /* Ensure gallery section titles are above images */
+  .gallery.container > h2 {
+    display: block !important;
+    width: 100% !important;
+    text-align: center !important;
+    margin-bottom: 15px !important;
+  }
+}
+
 /* Center gallery section headings */
 .gallery h2,
 .gallery.container > h2 {
