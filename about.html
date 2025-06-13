@@ -8,21 +8,26 @@
   <link rel="stylesheet" href="styles.css" />
   <link rel="stylesheet" href="active-tab.css" />
   <link rel="stylesheet" href="floating-style.css" />
+  <link rel="stylesheet" href="hamburger.css" />
   </head>
 <body>
   <nav class="main-nav">
-    <div class="container">
-      <a href="#" class="logo">Girindhra Luhpari Abdullah</a>
-      <div class="menu-toggle" id="menu-toggle">&#9776;</div>
+    <div class="container" style="display: flex; align-items: center; justify-content: space-between;">
+      <div class="nav-title" style="color: white; font-weight: 700; font-size: 1.5rem; letter-spacing: 2px;">
+        Girindhra L.A
+      </div>
       <ul class="nav-links">
-        <li><a href="/">Beranda</a></li>
-        <!-- <li><a href="#">Blog</a></li> -->
-        <li><a href="about.html" class="active">About</a></li>
-        <li><a href="fotografi.html">FOTO</a></li>
-        <li><a href="desain-website.html">WEBSITE</a></li>
-        <!-- <li><a href="layanan.html">Layanan</a></li> -->
-        <li><a href="contact.html">Contact</a></li>
+        <li><a href="/index.html">Beranda</a></li>
+        <li><a href="/about.html" class="active">About</a></li>
+        <li><a href="/fotografi.html">Fotografi</a></li>
+        <li><a href="/desain-website.html">Website</a></li>
+        <li><a href="/contact.html">Contact</a></li>
       </ul>
+      <div class="menu-toggle" id="menu-toggle" style="cursor: pointer;">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
     </div>
   </nav>
   <section class="hero-section" style="background-image: url(/biodata.JPG); background-size: cover; background-position: center; background-repeat: no-repeat;">
@@ -54,6 +59,7 @@
                 <p>Kekurangan Diri: Suka teledor – Terlalu Fokus Pada 1 hal</p>
             </div>
         </div>
-    </section>
+  </section>
+  <script src="hamburger.js"></script>
 </body>
 </html>

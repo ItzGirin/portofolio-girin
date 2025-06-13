@@ -6,24 +6,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Portofolio Girindhra Luhpari Abdullah </title>
     <link rel="icon" href="LOGO TRANSPARENT GIRIN24.png" type="image/png" />
-  <link rel="stylesheet" href="styles.css" />
-  <link rel="stylesheet" href="active-tab.css" />
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="active-tab.css" />
+    <link rel="stylesheet" href="hamburger.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
   </head>
 <body>
   <nav class="main-nav">
-    <div class="container">
-      <div class="menu-toggle" id="menu-toggle">&#9776;</div>
+    <div class="container" style="display: flex; align-items: center; justify-content: space-between;">
+      <div class="nav-title" style="color: white; font-weight: 700; font-size: 1.5rem; letter-spacing: 2px;">
+        Girindhra L.A
+      </div>
       <ul class="nav-links">
-<li><a href="/" class="active">Beranda</a></li>
+        <li><a href="/" class="active">Beranda</a></li>
         <!-- <li><a href="#">Blog</a></li> -->
         <li><a href="about.html">About</a></li>
         <li><a href="fotografi.html">FOTO</a></li>
-          <li><a href="desain-website.html">WEBSITE</a></li>
-          <!-- <li><a href="layanan.html">Layanan</a></li> -->
+        <li><a href="desain-website.html">WEBSITE</a></li>
+        <!-- <li><a href="layanan.html">Layanan</a></li> -->
         <li><a href="contact.html">Contact</a></li>
       </ul>
+      <div class="menu-toggle" id="menu-toggle" style="cursor: pointer;">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
     </div>
   </nav>
   <header class="hero" style="background-image: url(/beranda.JPG);">
@@ -31,29 +39,29 @@
     <div class="hero-content">
       <h1>Portofolio Girindhra</h1>
       <p>Abadikan momen dari fotografer profesional, mengabadikan pengalaman yang tak terlupakan .</p>
-<a href="#services" class="btn-primary">Lihat Karya</a>
+      <a href="#services" class="btn-primary">Lihat Karya</a>
     </div>
   </header>
 
   <section id="services" class="services">
     <h2>Fotografi Profesional</h2>
     <p>Temukan berbagai layanan berkualitas tinggi yang saya tawarkan untuk kebutuhan fotografi dan pembuatan website portofolio.</p>
-      <div class="service-items">
-        <a href="fotografi.html" class="service-item-link">
-          <article class="service-item">
-            <img src="/fotografi.JPG" alt="Fotografi" />
-            <h3>Fotografi</h3>
-            <p>Dengan pengalaman bertahun-tahun, saya menawarkan layanan fotografi untuk acara-acara spesial, portrait, dan pemandangan. Kualitas gambar yang memukau dan kreatif.</p>
-          </article>
-        </a>
-        <a href="desain-website.html" class="service-item-link">
-          <article class="service-item">
-            <img src="/portofolio.png" alt="Desain Website" />
-            <h3>Desain Website</h3>
-            <p>Saya menciptakan website portofolio yang estetis dan fungsional. Setiap desain dioptimalkan untuk menunjukkan karya Anda dengan cara yang menarik.</p>
-          </article>
-        </a>
-      </div>
+    <div class="service-items">
+      <a href="fotografi.html" class="service-item-link">
+        <article class="service-item">
+          <img src="/fotografi.JPG" alt="Fotografi" />
+          <h3>Fotografi</h3>
+          <p>Dengan pengalaman bertahun-tahun, saya menawarkan layanan fotografi untuk acara-acara spesial, portrait, dan pemandangan. Kualitas gambar yang memukau dan kreatif.</p>
+        </article>
+      </a>
+      <a href="desain-website.html" class="service-item-link">
+        <article class="service-item">
+          <img src="/portofolio.png" alt="Desain Website" />
+          <h3>Desain Website</h3>
+          <p>Saya menciptakan website portofolio yang estetis dan fungsional. Setiap desain dioptimalkan untuk menunjukkan karya Anda dengan cara yang menarik.</p>
+        </article>
+      </a>
+    </div>
   </section>
 
   <section class="testimonial" style="background-image: url('https://tangible-taskmaster-zol.zipwp.site/wp-content/uploads/2025/04/brown-brick-building-on-green-grass-field-4080999.jpeg'); text-align: center;">
@@ -87,5 +95,6 @@
   </section>
 
   <script src="script.js"></script>
+  <script src="hamburger.js"></script>
 </body>
 </html>
