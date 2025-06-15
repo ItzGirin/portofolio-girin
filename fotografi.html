@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="id">
-  <head>
+<head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Galeri Fotografi - Girindhra L.A</title>
@@ -8,12 +8,178 @@
   <link rel="stylesheet" href="styles.css" />
   <link rel="stylesheet" href="active-tab.css" />
   <link rel="stylesheet" href="hamburger.css" />
-  
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #fff;
+      color: #333;
+    }
+
+    .main-nav {
+      background-color: #2c3e50;
+      padding: 1rem 0;
+      color: white;
+    }
+
+    .main-nav .container {
+      max-width: 1200px;
+      margin: auto;
+      padding: 0 1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .nav-title {
+      font-size: 1.5rem;
+      font-weight: bold;
+      letter-spacing: 1px;
+    }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 1rem;
+      margin: 0;
+      padding: 0;
+    }
+
+    .nav-links a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .nav-links a.active {
+      text-decoration: underline;
+    }
+
+    .menu-toggle {
+      display: none;
+      cursor: pointer;
+      font-size: 1.5rem;
+    }
+
+    .hero {
+      position: relative;
+      background-image: url('/fotografi.JPG');
+      background-size: cover;
+      background-position: center;
+      padding: 6rem 1rem;
+      color: white;
+      text-align: center;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 1;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: auto;
+      padding: 2rem 1rem;
+    }
+
+    .gallery {
+      padding: 20px 0;
+    }
+
+    .gallery h2 {
+      margin: 40px 0 20px;
+      text-align: center;
+    }
+
+    .gallery-items {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+    }
+
+    .gallery-items img {
+      width: 100%;
+      margin-bottom: 1rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      display: block;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: #111;
+      color: white;
+    }
+
+    @media (max-width: 992px) {
+      .gallery-items {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+  @media (max-width: 768px) {
+      h2 {
+        font-size: 1.2rem;
+        text-align: center;
+        margin-top: 24px;
+      }
+
+      .container {
+        padding: 0 16px;
+      }
+
+      .gallery {
+        padding: 0;
+      }
+
+      .gallery-items {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+      }
+
+      .gallery-items img {
+        width: 100%;
+        max-width: none;
+        height: auto;
+        border-radius: 8px;
+      }
+
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        background: #333;
+        position: absolute;
+        right: 0;
+        top: 60px;
+        width: 200px;
+      }
+
+      .nav-links.active {
+        display: flex;
+      }
+
+      .menu-toggle {
+        display: block;
+      }
+    }
+  </style>
 </head>
-<body>
-  </head>
+
+
 <body>
   <nav class="main-nav">
     <div class="container" style="display: flex; align-items: center; justify-content: space-between;">
@@ -22,8 +188,9 @@
       </div>
       <ul class="nav-links">
         <li><a href="/" class="active">Beranda</a></li>
+        <!-- <li><a href="#">Blog</a></li> -->
         <li><a href="about.html">About</a></li>
-        <li><a href="fotografi.html" class="active">FOTO</a></li>
+        <li><a href="fotografi.html">FOTO</a></li>
         <li><a href="desain-website.html">WEBSITE</a></li>
         <!-- <li><a href="layanan.html">Layanan</a></li> -->
         <li><a href="contact.html">Contact</a></li>
@@ -36,7 +203,7 @@
     </div>
   </nav>
 
-  <header class="hero" style="background-image: url(/fotografi.JPG);">
+  <header class="hero" style="background-image: url('/fotografi.JPG');">
     <div class="hero-overlay"></div>
     <div class="hero-content">
       <h1>Galeri Fotografi</h1>
@@ -44,34 +211,24 @@
     </div>
   </header>
 
-  
-  </section>
   <section class="gallery container">
- 
-    <section class="gallery container">
-      <h2>Landscape Fotografi </h2>
-      <div class="gallery-items">
-        <img src="/lanscapp (2).png" />
-        <img src="lanscapp (1).png" />
-        <img src="lanscapp (3).png" />
-  
-      <div class="gallery-items">
-        <img src="ig (3).png" />
-        <img src="ig (1).png" />
-        <img src="ig (2).png" />
-  
-        <div class="gallery-items">
-          <img src="/foto7.JPG" alt="Landscape 1" />
-           <img src="/foto8.JPG" alt="Landscape 2" />
-          <img src="/foto6.JPG" alt="Landscape 3" />
-      
+    <h2>Landscape Fotografi</h2>
+    <div class="gallery-items">
+      <img src="/lanscapp (1).png" />
+      <img src="/lanscapp (2).png" />
+      <img src="/lanscapp (3).png" />
+      <img src="/ig (1).png" />
+      <img src="/ig (2).png" />
+      <img src="/ig (3).png" />
+      <img src="/foto7.JPG" />
+      <img src="/foto8.JPG" />
+      <img src="/foto6.JPG" />
     </div>
   </section>
 
   <section class="gallery container">
-    <h2>MC AMT </h2>
+    <h2>MC AMT</h2>
     <div class="gallery-items">
-
       <img src="/izza.JPG" />
       <img src="umar-izza.JPG" />
       <img src="umar.JPG" />
@@ -79,7 +236,7 @@
   </section>
 
   <section class="gallery container">
-    <h2>Maskot Arwestro 2025 </h2>
+    <h2>Maskot Arwestro 2025</h2>
     <div class="gallery-items">
       <img src="MARCO (1).png" />
       <img src="MARCO (3).png" />
@@ -88,7 +245,7 @@
   </section>
 
   <section class="gallery container">
-    <h2>Hari Santri Nasional </h2>
+    <h2>Hari Santri Nasional</h2>
     <div class="gallery-items">
       <img src="girintwentyfour-oct-22-2024-4.jpeg" />
       <img src="hari santri one (2).png" />
@@ -97,16 +254,16 @@
   </section>
 
   <section class="gallery container">
-    <h2>Hari Guru Nasional </h2>
+    <h2>Hari Guru Nasional</h2>
     <div class="gallery-items">
-      <img src="hari guru one (2).JPG" alt="Foto 3" />
-      <img src="hari guru one (3).JPG" alt="Foto 3" />
-      <img src="hari guru one (1).JPG" alt="Foto 3" />
+      <img src="hari guru one (2).JPG" />
+      <img src="hari guru one (3).JPG" />
+      <img src="hari guru one (1).JPG" />
     </div>
   </section>
 
   <section class="gallery container">
-    <h2>Arvolution </h2>
+    <h2>Arvolution</h2>
     <div class="gallery-items">
       <img src="arvo (2).jpg" />
       <img src="arvo (1).jpg" />
@@ -115,7 +272,7 @@
   </section>
 
   <section class="gallery container">
-    <h2>Arvolution - ABBC </h2>
+    <h2>Arvolution - ABBC</h2>
     <div class="gallery-items">
       <img src="/abbc (3).png" />
       <img src="abbc (2).png" />
@@ -124,25 +281,22 @@
   </section>
 
   <section class="gallery container">
-    <h2>Olahraga </h2>
+    <h2>Olahraga</h2>
     <div class="gallery-items">
       <img src="/AETHERION (2).jpeg" />
       <img src="AETHERION (1).jpeg" />
       <img src="AETHERION(3).jpeg" />
-
-
-              
-  
     </div>
   </section>
 
-</div>
-
-  <footer>
-    <p>&copy; 2025 girintwentyfour. All rights reserved.</p>
+  <footer style="display: flex; justify-content: space-between; align-items: center; padding: 10px 20px; background: #111; color: white;">
+    <a href="https://girin-profil.vercel.app" target="_blank" rel="noopener noreferrer" style="color: white; text-decoration: none;">https://girin-profil.vercel.app</a>
+    <p style="margin: 0;">© 2025 girintwentyfour. All rights reserved.</p>
   </footer>
+
   <script src="script.js"></script>
   <script src="hamburger.js"></script>
   <script src="nav-active.js"></script>
 </body>
 </html>
+
