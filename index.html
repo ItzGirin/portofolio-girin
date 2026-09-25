@@ -1,108 +1,1018 @@
 <!DOCTYPE html>
-<!-- girinprotoflio.vercell.app -->
-<html lang="id">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Portofolio Girindhra Luhpari Abdullah </title>
-    <link rel="icon" href="LOGO TRANSPARENT GIRIN24.png" type="image/png" />
-    <link rel="stylesheet" href="styles.css" />
-    <link rel="stylesheet" href="active-tab.css" />
-    <link rel="stylesheet" href="hamburger.css" />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-  </head>
-<body>
-  <nav class="main-nav">
-    <div class="container" style="display: flex; align-items: center; justify-content: space-between;">
-      <div class="nav-title" style="color: white; font-weight: 700; font-size: 1.5rem; letter-spacing: 2px;">
-        Girindhra L.A
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>girindla.dev - Girindhra Luhpari Abdullah</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Firebase SDKs -->
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
+        import { getAuth, signInAnonymously } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
+        import { getFirestore, collection, getDocs, setDoc, doc, deleteDoc } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
 
-      </div>
-      <ul class="nav-links">
-        <li><a href="/" class="active">Beranda</a></li>
-        <!-- <li><a href="#">Blog</a></li> -->
-        <li><a href="about.html">About</a></li>
-        <li><a href="fotografi.html">FOTO</a></li>
-        <li><a href="desain-website.html">WEBSITE</a></li>
-        <!-- <li><a href="layanan.html">Layanan</a></li> -->
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
-      <div class="menu-toggle" id="menu-toggle" style="cursor: pointer;">
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
+        const firebaseConfig = {
+            apiKey: "AIzaSyD_3bnkqLFwa-ezGQmC1IfJoVo-NWtasKs",
+            authDomain: "arvolution-e509e.firebaseapp.com",
+            projectId: "arvolution-e509e",
+            storageBucket: "arvolution-e509e.firebasestorage.app",
+            messagingSenderId: "87654864105",
+            appId: "1:87654864105:web:74fed1590a75f66eb68c78",
+            measurementId: "G-6Q852MVGDH"
+        };
+
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore(app);
+        const auth = getAuth(app);
+
+        window.firebaseApp = { db, auth, collection, getDocs, setDoc, doc, deleteDoc };
+        signInAnonymously(auth).catch(err => console.error("Auth error:", err));
+    </script>
+    <style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #0a0a0c;
+            color: #f4f4f5;
+            overflow-x: hidden;
+        }
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #0a0a0c; }
+        ::-webkit-scrollbar-thumb { background: #27272a; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #3f3f46; }
+
+        /* Draggable Physics ID Card & Multi-Directional Lanyard */
+        #draggable-card {
+            touch-action: none;
+            cursor: grab;
+            will-change: transform;
+            z-index: 30;
+            -webkit-user-select: none;
+            user-select: none;
+        }
+        #draggable-card:active {
+            cursor: grabbing;
+        }
+        #draggable-card img {
+            pointer-events: none;
+            -webkit-user-drag: none;
+        }
+    </style>
+</head>
+<body class="bg-[#0a0a0c] text-zinc-100 antialiased selection:bg-red-600 selection:text-white">
+
+    <!-- Header / Navbar -->
+    <header class="fixed top-0 left-0 right-0 z-40 bg-[#0a0a0c]/85 backdrop-blur-md border-b border-zinc-800/80">
+        <div class="max-w-6xl mx-auto px-6 h-20 flex items-center justify-between">
+            <a href="#" class="flex items-center gap-2 group">
+                <div class="w-9 h-9 rounded-xl bg-gradient-to-tr from-red-700 to-red-500 flex items-center justify-center text-white font-black text-sm shadow-lg shadow-red-600/30">
+                    GL
+                </div>
+                <div>
+                    <span class="font-bold text-base tracking-tight group-hover:text-red-500 transition-colors">girindla.dev</span>
+                    <span class="block text-[10px] text-zinc-400 font-medium">Girindhra Luhpari Abdullah</span>
+                </div>
+            </a>
+            
+            <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-zinc-400">
+                <a href="#tentang" class="hover:text-white transition">Tentang</a>
+                <a href="#sejarah" class="hover:text-white transition">Riwayat & Sejarah</a>
+                <a href="#keahlian" class="hover:text-white transition">Keahlian</a>
+                <a href="#karya" class="hover:text-white transition">Karya & Galeri</a>
+                <a href="#kontak" class="hover:text-white transition">Kontak</a>
+            </nav>
+
+            <div class="flex items-center gap-3">
+                <!-- Secret trigger to open login modal -->
+                <button onclick="openLoginModal()" class="w-8 h-8 rounded-xl bg-zinc-900/50 hover:bg-zinc-800 text-zinc-600 hover:text-zinc-400 transition flex items-center justify-center border border-zinc-900" title="Admin Access">
+                    <i class="fa-solid fa-lock text-xs"></i>
+                </button>
+                <a href="https://wa.me/6282313222097" target="_blank" class="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-xl text-sm font-semibold transition shadow-lg shadow-red-600/20 flex items-center gap-2">
+                    <i class="fa-brands fa-whatsapp"></i> Hubungi
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="min-h-screen pt-32 pb-20 flex items-center justify-center relative overflow-hidden">
+        <div class="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[450px] h-[450px] bg-red-600/10 blur-[130px] rounded-full pointer-events-none"></div>
+
+        <div class="max-w-6xl mx-auto px-6 w-full grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            
+            <div class="lg:col-span-6 space-y-6 text-center lg:text-left z-10">
+                <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-red-500/10 border border-red-500/20 text-red-400 text-xs font-semibold">
+                    <i class="fa-solid fa-code text-red-500"></i> Professional Web Dev & Designer
+                </div>
+                <h1 class="text-4xl sm:text-6xl font-black tracking-tight text-white leading-tight">
+                    Halo, Saya <span class="text-transparent bg-clip-text bg-gradient-to-r from-red-500 via-rose-500 to-amber-500">Girindhra Luhpari Abdullah</span>
+                </h1>
+                <p class="text-zinc-400 text-lg max-w-xl mx-auto lg:mx-0 leading-relaxed font-normal">
+                    Pengembang web profesional dan desainer multimedia yang berfokus pada estetika tinggi, performa reaktif, dan pengalaman pengguna optimal.
+                </p>
+                <div class="flex flex-wrap items-center justify-center lg:justify-start gap-4 pt-2">
+                    <a href="#karya" class="bg-zinc-100 hover:bg-white text-zinc-900 px-7 py-3.5 rounded-xl font-bold transition shadow-lg flex items-center gap-2 text-sm">
+                        Lihat Galeri Karya <i class="fa-solid fa-arrow-down text-xs"></i>
+                    </a>
+                    <a href="https://instagram.com/girinn_ajaa" target="_blank" class="bg-zinc-900 hover:bg-zinc-800 text-zinc-200 border border-zinc-800 px-6 py-3.5 rounded-xl font-bold transition flex items-center gap-2 text-sm">
+                        <i class="fa-brands fa-instagram text-pink-500 text-lg"></i> @girinn_ajaa
+                    </a>
+                </div>
+            </div>
+
+            <!-- Draggable Full-Photo ID Card with Multi-Directional Lanyard String -->
+            <div class="lg:col-span-6 flex flex-col items-center justify-center relative min-h-[480px]">
+                
+                <!-- SVG Canvas for Multi-directional Elastic Lanyard string -->
+                <svg id="lanyard-svg" class="absolute inset-0 w-full h-full pointer-events-none z-10" style="overflow: visible;">
+                    <line id="lanyard-line" x1="50%" y1="0" x2="50%" y2="120" stroke="#b91c1c" stroke-width="8" stroke-linecap="round" />
+                </svg>
+
+                <!-- Top Hook Anchor -->
+                <div id="lanyard-anchor" class="absolute top-0 w-8 h-4 bg-zinc-800 border border-zinc-700 rounded-b shadow-md z-20"></div>
+
+                <!-- Full Photo ID Card (No text overlays, fully protected against dragging/saving) -->
+                <div id="draggable-card" class="relative mt-24 z-20 w-[270px] sm:w-[290px] h-[390px] bg-zinc-900 border-4 border-red-700 rounded-3xl shadow-2xl overflow-hidden select-none">
+                    <div class="absolute top-2 left-1/2 -translate-x-1/2 w-10 h-2 bg-black/80 rounded-full z-30"></div>
+                    <img id="card-photo" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=500" alt="Girindhra Luhpari Abdullah" class="w-full h-full object-cover object-center pointer-events-none select-none" draggable="false">
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Tentang Saya -->
+    <section id="tentang" class="py-24 bg-zinc-950/60 border-t border-zinc-800/80">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="max-w-2xl mx-auto text-center space-y-3 mb-16">
+                <span class="text-red-500 text-xs font-bold uppercase tracking-widest block">Profil</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-white">Tentang Saya</h2>
+                <div class="w-12 h-1 bg-red-600 mx-auto rounded-full"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="bg-zinc-900/80 border border-zinc-800 p-8 rounded-3xl space-y-4 shadow-lg backdrop-blur">
+                    <div class="w-14 h-14 rounded-2xl bg-red-600/10 border border-red-600/20 flex items-center justify-center text-red-500 text-2xl font-bold">
+                        <i class="fa-solid fa-laptop-code"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white">Pengembangan Web Modern</h3>
+                    <p class="text-zinc-400 leading-relaxed text-sm">
+                        Berpengalaman dalam membangun aplikasi web responsif dan interaktif menggunakan HTML, CSS, JavaScript, React, Next.js, TanStack, serta database handal seperti Firebase dan Supabase.
+                    </p>
+                </div>
+
+                <div class="bg-zinc-900/80 border border-zinc-800 p-8 rounded-3xl space-y-4 shadow-lg backdrop-blur">
+                    <div class="w-14 h-14 rounded-2xl bg-red-600/10 border border-red-600/20 flex items-center justify-center text-red-500 text-2xl font-bold">
+                        <i class="fa-solid fa-palette"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white">Desain Grafis & Multimedia</h3>
+                    <p class="text-zinc-400 leading-relaxed text-sm">
+                        Aktif dalam pembuatan banner event, poster rundown, dokumentasi profesional, serta desain UI/UX yang elegan dan memukau untuk berbagai kebutuhan organisasi dan sekolah.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sejarah / Riwayat Organisasi & Event -->
+    <section id="sejarah" class="py-24 border-t border-zinc-800/80">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="max-w-2xl mx-auto text-center space-y-3 mb-16">
+                <span class="text-red-500 text-xs font-bold uppercase tracking-widest block">Jejak Langkah</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-white">Sejarah & Riwayat Organisasi</h2>
+                <div class="w-12 h-1 bg-red-600 mx-auto rounded-full"></div>
+                <p class="text-zinc-400 text-sm">Rekam jejak pengalaman keaktifan di OSIS, tim media, PMR, dan kepanitiaan event sekolah.</p>
+            </div>
+
+            <!-- Dynamic History Timeline Grid -->
+            <div id="history-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Loaded dynamically -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Keahlian & Stack -->
+    <section id="keahlian" class="py-24 bg-zinc-950/60 border-t border-zinc-800/80">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="max-w-2xl mx-auto text-center space-y-3 mb-16">
+                <span class="text-red-500 text-xs font-bold uppercase tracking-widest block">Teknologi</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-white">Keahlian & Stack</h2>
+                <div class="w-12 h-1 bg-red-600 mx-auto rounded-full"></div>
+            </div>
+
+            <div class="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-8 gap-4">
+                <div class="bg-zinc-900/70 border border-zinc-800 p-5 rounded-2xl flex flex-col items-center justify-center gap-3 hover:border-red-600/50 transition group">
+                    <i class="fa-brands fa-html5 text-3xl text-orange-500 group-hover:scale-110 transition"></i>
+                    <span class="font-semibold text-xs text-zinc-300">HTML5</span>
+                </div>
+                <div class="bg-zinc-900/70 border border-zinc-800 p-5 rounded-2xl flex flex-col items-center justify-center gap-3 hover:border-red-600/50 transition group">
+                    <i class="fa-brands fa-css3-alt text-3xl text-blue-500 group-hover:scale-110 transition"></i>
+                    <span class="font-semibold text-xs text-zinc-300">CSS3</span>
+                </div>
+                <div class="bg-zinc-900/70 border border-zinc-800 p-5 rounded-2xl flex flex-col items-center justify-center gap-3 hover:border-red-600/50 transition group">
+                    <i class="fa-brands fa-js text-3xl text-yellow-400 group-hover:scale-110 transition"></i>
+                    <span class="font-semibold text-xs text-zinc-300">JavaScript</span>
+                </div>
+                <div class="bg-zinc-900/70 border border-zinc-800 p-5 rounded-2xl flex flex-col items-center justify-center gap-3 hover:border-red-600/50 transition group">
+                    <i class="fa-brands fa-react text-3xl text-cyan-400 group-hover:scale-110 transition"></i>
+                    <span class="font-semibold text-xs text-zinc-300">React</span>
+                </div>
+                <div class="bg-zinc-900/70 border border-zinc-800 p-5 rounded-2xl flex flex-col items-center justify-center gap-3 hover:border-red-600/50 transition group">
+                    <i class="fa-solid fa-n text-3xl text-white group-hover:scale-110 transition"></i>
+                    <span class="font-semibold text-xs text-zinc-300">Next.js</span>
+                </div>
+                <div class="bg-zinc-900/70 border border-zinc-800 p-5 rounded-2xl flex flex-col items-center justify-center gap-3 hover:border-red-600/50 transition group">
+                    <i class="fa-solid fa-layer-group text-3xl text-rose-500 group-hover:scale-110 transition"></i>
+                    <span class="font-semibold text-xs text-zinc-300">TanStack</span>
+                </div>
+                <div class="bg-zinc-900/70 border border-zinc-800 p-5 rounded-2xl flex flex-col items-center justify-center gap-3 hover:border-red-600/50 transition group">
+                    <i class="fa-solid fa-fire text-3xl text-amber-500 group-hover:scale-110 transition"></i>
+                    <span class="font-semibold text-xs text-zinc-300">Firebase</span>
+                </div>
+                <div class="bg-zinc-900/70 border border-zinc-800 p-5 rounded-2xl flex flex-col items-center justify-center gap-3 hover:border-red-600/50 transition group">
+                    <i class="fa-solid fa-database text-3xl text-emerald-400 group-hover:scale-110 transition"></i>
+                    <span class="font-semibold text-xs text-zinc-300">Supabase</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Karya & Galeri -->
+    <section id="karya" class="py-24 border-t border-zinc-800/80">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="max-w-2xl mx-auto text-center space-y-3 mb-16">
+                <span class="text-red-500 text-xs font-bold uppercase tracking-widest block">Portofolio</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-white">Karya & Galeri Hasil Kerja</h2>
+                <div class="w-12 h-1 bg-red-600 mx-auto rounded-full"></div>
+                <p class="text-zinc-400 text-sm">Dokumentasi event, desain grafis, dan proyek web dev pilihan dengan layout proporsional rasio 16:9. Klik gambar untuk melihat ukuran penuh.</p>
+            </div>
+
+            <!-- Dynamic Gallery Grid container with exact 16:9 proportional image containers -->
+            <div id="gallery-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Loaded dynamically -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Fullscreen Image Preview Modal -->
+    <div id="image-modal" class="fixed inset-0 z-50 bg-black/90 backdrop-blur-md hidden items-center justify-center p-4">
+        <button onclick="closeImageModal()" class="absolute top-6 right-6 text-zinc-400 hover:text-white transition z-50 w-10 h-10 bg-zinc-900 rounded-full flex items-center justify-center border border-zinc-800">
+            <i class="fa-solid fa-xmark text-lg"></i>
+        </button>
+        <div class="relative max-w-5xl max-h-[90vh] w-full flex items-center justify-center">
+            <img id="modal-preview-img" src="" alt="Preview Karya" class="max-w-full max-h-[85vh] object-contain rounded-2xl border border-zinc-800 shadow-2xl">
+        </div>
     </div>
-  </nav>
-  <header class="hero" style="background-image: url(/beranda.JPG);">
-    <div class="hero-overlay"></div>
-    <div class="hero-content">
-      <h1>Portofolio Girindhra</h1>
-      <p>Abadikan momen dari fotografer profesional, mengabadikan pengalaman yang tak terlupakan .</p>
-      <a href="#services" class="btn-primary">Lihat Karya</a>
+
+    <!-- Kontak -->
+    <section id="kontak" class="py-24 bg-zinc-950/60 border-t border-zinc-800/80">
+        <div class="max-w-4xl mx-auto px-6 text-center space-y-8">
+            <div class="space-y-3">
+                <span class="text-red-500 text-xs font-bold uppercase tracking-widest block">Kontak</span>
+                <h2 class="text-3xl font-bold tracking-tight text-white">Mari Terhubung</h2>
+                <div class="w-12 h-1 bg-red-600 mx-auto rounded-full"></div>
+                <p class="text-zinc-400 max-w-lg mx-auto text-sm">Punya proyek, pertanyaan, atau ingin berdiskusi seputar web development dan desain? Hubungi saya langsung melalui WhatsApp atau Instagram.</p>
+            </div>
+
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4 w-full max-w-md mx-auto">
+                <a href="https://wa.me/6282313222097?text=Halo%20Girindhra,%20saya%20ingin%20berkolaborasi." target="_blank" class="flex-1 bg-emerald-600 hover:bg-emerald-700 text-white p-6 rounded-3xl font-bold transition shadow-xl shadow-emerald-600/20 flex flex-col items-center justify-center gap-2 w-full">
+                    <i class="fa-brands fa-whatsapp text-3xl"></i>
+                    <span class="text-xs font-medium text-emerald-100">WhatsApp</span>
+                    <span class="text-sm font-mono">0823-1322-2097</span>
+                </a>
+                <a href="https://instagram.com/girinn_ajaa" target="_blank" class="flex-1 bg-gradient-to-tr from-amber-600 via-rose-600 to-purple-600 hover:opacity-90 text-white p-6 rounded-3xl font-bold transition shadow-xl shadow-rose-600/20 flex flex-col items-center justify-center gap-2 w-full">
+                    <i class="fa-brands fa-instagram text-3xl"></i>
+                    <span class="text-xs font-medium text-rose-100">Instagram</span>
+                    <span class="text-sm font-mono">@girinn_ajaa</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="py-8 bg-zinc-950 border-t border-zinc-800/80 text-center text-xs text-zinc-500">
+        <p>&copy; 2026 Girindhra Luhpari Abdullah (girindla.dev). All Rights Reserved.</p>
+    </footer>
+
+    <!-- Admin Login Modal -->
+    <div id="login-modal" class="fixed inset-0 z-50 bg-black/85 backdrop-blur-md hidden items-center justify-center p-4">
+        <div class="bg-zinc-900 border border-zinc-800 w-full max-w-md rounded-3xl p-6 sm:p-8 space-y-6 relative shadow-2xl">
+            <button onclick="closeLoginModal()" class="absolute top-6 right-6 text-zinc-400 hover:text-white transition">
+                <i class="fa-solid fa-xmark text-lg"></i>
+            </button>
+
+            <div class="space-y-2">
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-red-500/10 text-red-400 text-xs font-semibold">
+                    <i class="fa-solid fa-lock"></i> Autentikasi Admin
+                </div>
+                <h3 class="text-xl font-bold text-white">Login Panel Admin</h3>
+                <p class="text-xs text-zinc-400">Masukkan kredensial admin untuk mengakses panel manajemen galeri & sejarah.</p>
+            </div>
+
+            <div class="space-y-4">
+                <div>
+                    <label class="block text-xs font-medium text-zinc-300 mb-1.5">Username</label>
+                    <input type="text" id="login-user" placeholder="admin" class="w-full bg-zinc-950 border border-zinc-800 rounded-xl px-4 py-2.5 text-sm text-white focus:outline-none focus:border-red-600 transition">
+                </div>
+                <div>
+                    <label class="block text-xs font-medium text-zinc-300 mb-1.5">Password</label>
+                    <input type="password" id="login-pass" placeholder="••••••••" class="w-full bg-zinc-950 border border-zinc-800 rounded-xl px-4 py-2.5 text-sm text-white focus:outline-none focus:border-red-600 transition">
+                </div>
+                <button onclick="handleLogin()" class="w-full bg-red-600 hover:bg-red-700 text-white font-bold py-3 rounded-xl text-sm transition shadow-lg shadow-red-600/30">
+                    Masuk ke Admin Panel
+                </button>
+            </div>
+        </div>
     </div>
-  </header>
 
-  <section id="services" class="services">
-    <h2>Fotografi Profesional</h2>
-    <p>Temukan berbagai layanan berkualitas tinggi yang saya tawarkan untuk kebutuhan fotografi dan pembuatan website portofolio.</p>
-    <div class="service-items">
-      <a href="fotografi.html" class="service-item-link">
-        <article class="service-item">
-          <img src="/fotografi.JPG" alt="Fotografi" />
-          <h3>Fotografi</h3>
-          <p>Dengan pengalaman bertahun-tahun, saya menawarkan layanan fotografi untuk acara-acara spesial, portrait, dan pemandangan. Kualitas gambar yang memukau dan kreatif.</p>
-        </article>
-      </a>
-      <a href="desain-website.html" class="service-item-link">
-        <article class="service-item">
-          <img src="/portofolio.png" alt="Desain Website" />
-          <h3>Desain Website</h3>
-          <p>Saya menciptakan website portofolio yang estetis dan fungsional. Setiap desain dioptimalkan untuk menunjukkan karya Anda dengan cara yang menarik.</p>
-        </article>
-      </a>
+    <!-- Admin Dashboard Modal -->
+    <div id="admin-dashboard" class="fixed inset-0 z-50 bg-black/90 backdrop-blur-lg hidden items-center justify-center p-4">
+        <div class="bg-zinc-900 border border-zinc-800 w-full max-w-3xl rounded-3xl p-6 sm:p-8 space-y-6 relative shadow-2xl max-h-[90vh] overflow-y-auto">
+            <button onclick="closeAdminDashboard()" class="absolute top-6 right-6 text-zinc-400 hover:text-white transition">
+                <i class="fa-solid fa-xmark text-lg"></i>
+            </button>
+
+            <div class="space-y-1">
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 text-emerald-400 text-xs font-semibold">
+                    <i class="fa-solid fa-shield-halved"></i> Firestore & Supabase Admin Panel
+                </div>
+                <h3 class="text-2xl font-bold text-white">Panel Manajemen Portofolio</h3>
+                <p class="text-xs text-zinc-400">Atur foto cocard, tambah/edit karya galeri rasio 16:9, dan riwayat sejarah organisasi.</p>
+            </div>
+
+            <!-- Tabs -->
+            <div class="flex gap-2 border-b border-zinc-800 pb-2 overflow-x-auto">
+                <button onclick="switchTab('profile')" id="tab-profile-btn" class="px-4 py-2 rounded-xl text-xs font-bold bg-red-600 text-white transition whitespace-nowrap">Kustom Foto Cocard</button>
+                <button onclick="switchTab('gallery')" id="tab-gallery-btn" class="px-4 py-2 rounded-xl text-xs font-bold bg-zinc-800 text-zinc-300 transition whitespace-nowrap">Kelola Karya</button>
+                <button onclick="switchTab('history')" id="tab-history-btn" class="px-4 py-2 rounded-xl text-xs font-bold bg-zinc-800 text-zinc-300 transition whitespace-nowrap">Kelola Sejarah</button>
+            </div>
+
+            <!-- Tab 1: Profile Customization -->
+            <div id="tab-profile-content" class="space-y-4 pt-2">
+                <div>
+                    <label class="block text-xs font-medium text-zinc-300 mb-1.5">URL Foto Cocard Baru</label>
+                    <input type="text" id="admin-photo-url" placeholder="https://..." class="w-full bg-zinc-950 border border-zinc-800 rounded-xl px-4 py-2.5 text-sm text-white focus:outline-none focus:border-red-600 transition">
+                </div>
+                <div>
+                    <label class="block text-xs font-medium text-zinc-300 mb-1.5">Atau Upload File Foto (Kompres Supabase)</label>
+                    <input type="file" id="admin-photo-file" accept="image/*" class="w-full text-xs text-zinc-400 file:mr-4 file:py-2 file:px-4 file:rounded-xl file:border-0 file:text-xs file:font-semibold file:bg-red-600 file:text-white hover:file:bg-red-700 cursor-pointer">
+                </div>
+                <button onclick="saveProfilePhoto()" class="w-full bg-red-600 hover:bg-red-700 text-white font-bold py-3 rounded-xl text-sm transition shadow-lg shadow-red-600/30">
+                    Simpan Foto Cocard
+                </button>
+            </div>
+
+            <!-- Tab 2: Gallery Management -->
+            <div id="tab-gallery-content" class="space-y-6 pt-2 hidden">
+                <div class="bg-zinc-950 border border-zinc-800 p-5 rounded-2xl space-y-4">
+                    <h4 id="form-mode-title" class="text-sm font-bold text-white flex items-center gap-2">
+                        <i class="fa-solid fa-plus text-red-500"></i> Tambah Karya Baru ke Galeri
+                    </h4>
+                    <input type="hidden" id="edit-item-id" value="">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-xs font-medium text-zinc-300 mb-1">Judul Karya</label>
+                            <input type="text" id="gallery-title" placeholder="Contoh: Pelantikan OSIS..." class="w-full bg-zinc-900 border border-zinc-800 rounded-xl px-4 py-2 text-sm text-white focus:outline-none focus:border-red-600">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-medium text-zinc-300 mb-1">Kategori</label>
+                            <input type="text" id="gallery-category" placeholder="Contoh: Fotografi / Desain Grafis" class="w-full bg-zinc-900 border border-zinc-800 rounded-xl px-4 py-2 text-sm text-white focus:outline-none focus:border-red-600">
+                        </div>
+                    </div>
+                    <div>
+                        <label class="block text-xs font-medium text-zinc-300 mb-1">Deskripsi Singkat</label>
+                        <textarea id="gallery-desc" rows="2" placeholder="Deskripsi karya..." class="w-full bg-zinc-900 border border-zinc-800 rounded-xl px-4 py-2 text-sm text-white focus:outline-none focus:border-red-600"></textarea>
+                    </div>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-xs font-medium text-zinc-300 mb-1">URL Gambar (Rasio 16:9)</label>
+                            <input type="text" id="gallery-img-url" placeholder="https://..." class="w-full bg-zinc-900 border border-zinc-800 rounded-xl px-4 py-2 text-sm text-white focus:outline-none focus:border-red-600">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-medium text-zinc-300 mb-1">Upload File Gambar (Kompres)</label>
+                            <input type="file" id="gallery-img-file" accept="image/*" class="w-full text-xs text-zinc-400 file:mr-2 file:py-1.5 file:px-3 file:rounded-lg file:border-0 file:bg-zinc-800 file:text-white cursor-pointer">
+                        </div>
+                    </div>
+                    <div class="flex gap-3 pt-2">
+                        <button onclick="saveGalleryItem()" class="flex-1 bg-red-600 hover:bg-red-700 text-white font-bold py-2.5 rounded-xl text-sm transition shadow-lg">
+                            Simpan Karya ke Firestore
+                        </button>
+                        <button onclick="resetGalleryForm()" id="cancel-edit-btn" class="hidden bg-zinc-800 hover:bg-zinc-700 text-zinc-300 px-4 py-2.5 rounded-xl text-sm transition">
+                            Batal
+                        </button>
+                    </div>
+                </div>
+
+                <div class="space-y-3">
+                    <h4 class="text-xs font-bold text-zinc-400 uppercase tracking-wider">Daftar Karya Tersimpan (Edit / Hapus)</h4>
+                    <div id="admin-gallery-list" class="space-y-2 max-h-60 overflow-y-auto pr-2"></div>
+                </div>
+            </div>
+
+            <!-- Tab 3: History Management -->
+            <div id="tab-history-content" class="space-y-6 pt-2 hidden">
+                <div class="bg-zinc-950 border border-zinc-800 p-5 rounded-2xl space-y-4">
+                    <h4 id="history-form-title" class="text-sm font-bold text-white flex items-center gap-2">
+                        <i class="fa-solid fa-plus text-red-500"></i> Tambah Riwayat Sejarah Baru
+                    </h4>
+                    <input type="hidden" id="edit-history-id" value="">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-xs font-medium text-zinc-300 mb-1">Organisasi / Tim</label>
+                            <input type="text" id="history-org" placeholder="Contoh: OSIS SMA IT ABBSKP" class="w-full bg-zinc-900 border border-zinc-800 rounded-xl px-4 py-2 text-sm text-white focus:outline-none focus:border-red-600">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-medium text-zinc-300 mb-1">Divisi / Peran</label>
+                            <input type="text" id="history-role" placeholder="Contoh: Divisi Media" class="w-full bg-zinc-900 border border-zinc-800 rounded-xl px-4 py-2 text-sm text-white focus:outline-none focus:border-red-600">
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-xs font-medium text-zinc-300 mb-1">Periode / Tahun</label>
+                            <input type="text" id="history-year" placeholder="Contoh: 2024 (Periode 1)" class="w-full bg-zinc-900 border border-zinc-800 rounded-xl px-4 py-2 text-sm text-white focus:outline-none focus:border-red-600">
+                        </div>
+                    </div>
+                    <div>
+                        <label class="block text-xs font-medium text-zinc-300 mb-1">Deskripsi Lengkap</label>
+                        <textarea id="history-desc" rows="2" placeholder="Deskripsi aktivitas..." class="w-full bg-zinc-900 border border-zinc-800 rounded-xl px-4 py-2 text-sm text-white focus:outline-none focus:border-red-600"></textarea>
+                    </div>
+                    <div class="flex gap-3 pt-2">
+                        <button onclick="saveHistoryItem()" class="flex-1 bg-red-600 hover:bg-red-700 text-white font-bold py-2.5 rounded-xl text-sm transition shadow-lg">
+                            Simpan Sejarah ke Firestore
+                        </button>
+                        <button onclick="resetHistoryForm()" id="cancel-history-edit" class="hidden bg-zinc-800 hover:bg-zinc-700 text-zinc-300 px-4 py-2.5 rounded-xl text-sm transition">
+                            Batal
+                        </button>
+                    </div>
+                </div>
+
+                <div class="space-y-3">
+                    <h4 class="text-xs font-bold text-zinc-400 uppercase tracking-wider">Daftar Riwayat Sejarah (Edit / Hapus)</h4>
+                    <div id="admin-history-list" class="space-y-2 max-h-60 overflow-y-auto pr-2"></div>
+                </div>
+            </div>
+
+            <div class="border-t border-zinc-800 pt-4 text-[11px] text-zinc-500 font-mono flex justify-between items-center">
+                <span>Supabase Storage & Firestore Sync: Active</span>
+                <span class="text-emerald-500 font-bold">Optimized Cache</span>
+            </div>
+        </div>
     </div>
-  </section>
 
-  <section class="testimonial" style="background-image: url('https://tangible-taskmaster-zol.zipwp.site/wp-content/uploads/2025/04/brown-brick-building-on-green-grass-field-4080999.jpeg'); text-align: center;">
-    <div class="testimonial-overlay"></div>
-    <div class="testimonial-content" style="display: inline-block; text-align: center;">
-      <h1 style="color: white; margin-bottom: 20px;">Tentang Karya Ku</h1>
-      <blockquote style="margin: 0 auto; max-width: 600px;">
-        "Girin berhasil menangkap momen yang saya inginkan dengan sangat baik. Karya dia sungguh memukau dan berkualitas tinggi."
-      </blockquote>
-      <cite>— Faiz Arya Resta Sena</cite>
-    </div>
-  </section>
+    <script>
+        // Multi-directional elastic lanyard physics & Draggable ID Card anywhere
+        const card = document.getElementById('draggable-card');
+        const lanyardLine = document.getElementById('lanyard-line');
+        const anchor = document.getElementById('lanyard-anchor');
 
-  <section class="advantages">
-    <h2>KETERAMPILAN UNGGULAN KU</h2>
-    <p>Saya mengedepankan kualitas, kreativitas, dan pengalaman yang tak tertandingi dalam setiap proyek, memastikan kepuasan pelanggan maksimal.</p>
-    <div class="advantage-items">
-      <article class="advantage-item">
-        <img src="/nokompromi.jpeg" alt="Kualitas Tanpa Kompromi" />
-        <h3><a href="fotografi.html" class="link-primary">Kualitas Tanpa Kompromi</a></h3>
-        <p>Saya berkomitmen untuk memberikan karya fotografi dan desain web dengan kualitas terbaik. Setiap detail diperhatikan untuk memuaskan klien saya.</p>
-      <p> </p>
+        let isDragging = false;
+        let startX = 0, startY = 0;
+        let currentX = 0, currentY = 0;
 
-        <a href="fotografi.html" class="btn-secondary">Pelajari Selengkapnya</a>
-      </article>
-      <article class="advantage-item">
-        <img src="/eternal.png" alt="Pengalaman Interaktif" />
-        <h3><a href="desain-website.html" class="link-primary">Pengalaman Interaktif</a></h3>
-        <p>Website ku tidak hanya indah secara visual, tetapi juga interaktif.  membuat pengalaman pengguna lebih menyenangkan.</p>
-  
-        <a href="desain-website.html" class="btn-secondary">Pelajari Selengkapnya</a>
-      </article>
-    </div>
-  </section>
-  <footer>
-    <p>&copy; 2025 girintwentyfour. All rights reserved.</p>
-  </footer> 
+        function updateLanyardString() {
+            const anchorRect = anchor.getBoundingClientRect();
+            const cardRect = card.getBoundingClientRect();
+            const containerRect = card.parentElement.getBoundingClientRect();
 
-  <script src="script.js"></script>
-  <script src="hamburger.js"></script>
-  <script src="nav-active.js"></script>
+            const x1 = anchorRect.left + anchorRect.width / 2 - containerRect.left;
+            const y1 = anchorRect.top + anchorRect.height - containerRect.top;
+            const x2 = cardRect.left + cardRect.width / 2 - containerRect.left;
+            const y2 = cardRect.top - containerRect.top;
+
+            lanyardLine.setAttribute('x1', x1);
+            lanyardLine.setAttribute('y1', y1);
+            lanyardLine.setAttribute('x2', x2);
+            lanyardLine.setAttribute('y2', y2);
+        }
+
+        card.addEventListener('pointerdown', (e) => {
+            isDragging = true;
+            startX = e.clientX - currentX;
+            startY = e.clientY - currentY;
+            card.setPointerCapture(e.pointerId);
+            card.style.transition = 'none';
+        });
+
+        card.addEventListener('pointermove', (e) => {
+            if (!isDragging) return;
+            currentX = e.clientX - startX;
+            currentY = e.clientY - startY;
+
+            if (currentX < -220) currentX = -220;
+            if (currentX > 220) currentX = 220;
+            if (currentY < -60) currentY = -60;
+            if (currentY > 300) currentY = 300;
+
+            let rotateAngle = currentX * 0.08;
+            card.style.transform = `translate(${currentX}px, ${currentY}px) rotate(${rotateAngle}deg)`;
+            updateLanyardString();
+        });
+
+        function stopDragging(e) {
+            if (!isDragging) return;
+            isDragging = false;
+            card.style.transition = 'transform 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275)';
+
+            currentX = 0;
+            currentY = 0;
+            card.style.transform = `translate(0px, 0px) rotate(0deg)`;
+            setTimeout(updateLanyardString, 600);
+        }
+
+        card.addEventListener('pointerup', stopDragging);
+        card.addEventListener('pointercancel', stopDragging);
+        window.addEventListener('resize', updateLanyardString);
+        window.addEventListener('load', updateLanyardString);
+
+        // Authentication & Admin Modal Controls (No console/alert notifications for login)
+        function openLoginModal() {
+            document.getElementById('login-modal').classList.remove('hidden');
+            document.getElementById('login-modal').classList.add('flex');
+        }
+        function closeLoginModal() {
+            document.getElementById('login-modal').classList.remove('flex');
+            document.getElementById('login-modal').classList.add('hidden');
+        }
+        function handleLogin() {
+            const user = document.getElementById('login-user').value.trim();
+            const pass = document.getElementById('login-pass').value.trim();
+
+            if (user === 'admin' && pass === 'Dchr3514') {
+                closeLoginModal();
+                document.getElementById('admin-dashboard').classList.remove('hidden');
+                document.getElementById('admin-dashboard').classList.add('flex');
+                loadAdminGalleryList();
+                loadAdminHistoryList();
+            } else {
+                document.getElementById('login-pass').value = '';
+            }
+        }
+        function closeAdminDashboard() {
+            document.getElementById('admin-dashboard').classList.remove('flex');
+            document.getElementById('admin-dashboard').classList.add('hidden');
+        }
+
+        function switchTab(tab) {
+            ['profile', 'gallery', 'history'].forEach(t => {
+                document.getElementById(`tab-${t}-content`).classList.add('hidden');
+                document.getElementById(`tab-${t}-btn`).className = 'px-4 py-2 rounded-xl text-xs font-bold bg-zinc-800 text-zinc-300 transition whitespace-nowrap';
+            });
+            document.getElementById(`tab-${tab}-content`).classList.remove('hidden');
+            document.getElementById(`tab-${tab}-btn`).className = 'px-4 py-2 rounded-xl text-xs font-bold bg-red-600 text-white transition whitespace-nowrap';
+            if (tab === 'gallery') loadAdminGalleryList();
+            if (tab === 'history') loadAdminHistoryList();
+        }
+
+        // Image compression helper (optimized to save storage)
+        function compressImage(file, maxWidth = 1200, quality = 0.8) {
+            return new Promise((resolve) => {
+                const reader = new FileReader();
+                reader.readAsDataURL(file);
+                reader.onload = (event) => {
+                    const img = new Image();
+                    img.src = event.target.result;
+                    img.onload = () => {
+                        const canvas = document.createElement('canvas');
+                        let width = img.width;
+                        let height = img.height;
+                        if (width > maxWidth) {
+                            height = Math.round((height * maxWidth) / width);
+                            width = maxWidth;
+                        }
+                        canvas.width = width;
+                        canvas.height = height;
+                        const ctx = canvas.getContext('2d');
+                        ctx.drawImage(img, 0, 0, width, height);
+                        resolve(canvas.toDataURL('image/jpeg', quality));
+                    };
+                };
+            });
+        }
+
+        // Default Data
+        const defaultGallery = [
+            {
+                id: 'item-1',
+                title: 'Pelantikan OSIS & MPK',
+                category: 'Fotografi',
+                desc: 'Pelantikan OSIS & MPK SMAIT ABU BAKAR BOARDING SCHOOL KULON PROGO Masa Bakti 2025/2026.',
+                imgUrl: 'https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&q=80&w=1200'
+            },
+            {
+                id: 'item-2',
+                title: 'Upacara Hari Santri Nasional',
+                category: 'Fotografi',
+                desc: 'Upacara Hari Santri Nasional SMAIT ABU BAKAR BOARDING SCHOOL KULON PROGO.',
+                imgUrl: 'https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&q=80&w=1200'
+            },
+            {
+                id: 'item-3',
+                title: 'Upacara Hari Guru Nasional',
+                category: 'Fotografi',
+                desc: 'Upacara Hari Guru Nasional SMAIT ABU BAKAR BOARDING SCHOOL KULON PROGO.',
+                imgUrl: 'https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&q=80&w=1200'
+            },
+            {
+                id: 'item-4',
+                title: 'Lomba 17 Agustus',
+                category: 'Fotografi',
+                desc: 'Lomba Memperingati Hari Kemerdekaan - Arwestro.',
+                imgUrl: 'https://images.unsplash.com/photo-1511632765486-a01980e01a18?auto=format&fit=crop&q=80&w=1200'
+            },
+            {
+                id: 'item-5',
+                title: 'Roadshow FKPO DIY',
+                category: 'Designer',
+                desc: 'Hasil Karya Saya - Desain Grafis Test - FKPO DIY.',
+                imgUrl: 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&q=80&w=1200'
+            },
+            {
+                id: 'item-6',
+                title: 'TelugeAgro - Supplier Pisang',
+                category: 'WebDev / Designer',
+                desc: 'Hasil Karya Saya - Web Dev/Desain - Leadingpage & Store TelugeAgro.',
+                imgUrl: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=1200'
+            }
+        ];
+
+        const defaultHistory = [
+            { id: 'h-1', org: 'OSIS SMA IT ABBSKP', role: 'DIVISI MEDIA', year: '2024 (Periode 1)', desc: 'Saya masuk menjadi anggota Osis di SMA IT ABU BAKAR KULON PROGO di bagian media 2024 (Periode 1).' },
+            { id: 'h-2', org: 'TIM MEDIA', role: 'ABU BAKAR BASKETBALL CHAMPIONSHIP', year: 'ABBC 2025', desc: 'Saya masuk menjadi anggota dokumentasi di Event Arvolution - ABBC 2025.' },
+            { id: 'h-3', org: 'TIM PDD', role: 'SMAIT ABU BAKAR BOARDING SCHOOL KP', year: 'ALL INTERNAL EVENT', desc: 'Saya menjadi anggota Publikasi Dokumentasi Desain dalam setiap Event, Sosialisasi, Kunjungan yang ada di Sekolah - ALL INTERNAL EVENT.' },
+            { id: 'h-4', org: 'OSIS SMA IT ABBSKP', role: 'DIVISI MEDIA', year: '2025 (Periode 2)', desc: 'Saya masuk menjadi anggota Osis di SMA IT ABU BAKAR KULON PROGO di bagian media 2025 (Periode 2).' },
+            { id: 'h-5', org: 'TIM MEDIA', role: 'EVENT ARVOLUTION 2025', year: 'MMXXV', desc: 'Saya masuk menjadi anggota Publikasi Dokumentasi Desain di Event Arvolution MMXXV.' },
+            { id: 'h-6', org: 'TIM PDD', role: 'LOMBA INTERNAL SEKOLAH', year: 'Internal 2025', desc: 'Saya masuk menjadi anggota dokumentasi di Event Arvolution - Lomba Internal 2025.' },
+            { id: 'h-7', org: 'TIM PDD', role: 'ARVOLUTION 2026', year: 'MMXXVI', desc: 'Saya masuk menjadi anggota Publikasi Dokumentasi Desain di Event Arvolution MMXXVI.' },
+            { id: 'h-8', org: 'PMR SMA IT ABBSKP', role: 'DIVISI HUMAS', year: '2026', desc: 'Saya masuk menjadi anggota PMR di SMA IT ABU BAKAR KULON PROGO di bagian Humas 2026.' },
+            { id: 'h-9', org: 'TIM DOKUMENTASI', role: 'EVENT KELULUSAN (WISUDA)', year: 'Angkatan 6', desc: 'Saya masuk menjadi anggota Dokumentasi dalam acara wisuda Arwestro angkatan 6.' },
+            { id: 'h-10', org: 'FKPO KP 2026', role: 'MULTIMEDIA', year: '2026', desc: 'Saya masuk menjadi anggota Multimedia FKPO Kulon Progo 2026.' },
+            { id: 'h-11', org: 'FKPO DIY 2026', role: 'MULTIMEDIA', year: '2026', desc: 'Saya masuk menjadi Koordinator Multimedia FKPO DIY 2026.' },
+            { id: 'h-12', org: 'KARSA PELAJAR DIY', role: 'Desain Grafis', year: 'KarJa 2026', desc: 'Saya masuk menjadi Koordinator Desain Grafis KarJa 2026.' }
+        ];
+
+        // Fetch & Render Gallery
+        async function fetchGalleryItems() {
+            const cached = localStorage.getItem('girindla_gallery_cache');
+            if (cached) {
+                renderGallery(JSON.parse(cached));
+            } else {
+                renderGallery(defaultGallery);
+            }
+
+            try {
+                if (window.firebaseApp) {
+                    const { db, collection, getDocs } = window.firebaseApp;
+                    const querySnapshot = await getDocs(collection(db, 'artifacts', 'girindla_portfolio', 'public_gallery'));
+                    if (!querySnapshot.empty) {
+                        const items = [];
+                        querySnapshot.forEach((doc) => {
+                            items.push({ id: doc.id, ...doc.data() });
+                        });
+                        localStorage.setItem('girindla_gallery_cache', JSON.stringify(items));
+                        renderGallery(items);
+                    }
+                }
+            } catch (e) {
+                console.log('Using local cached gallery.');
+            }
+        }
+
+        function renderGallery(items) {
+            const container = document.getElementById('gallery-container');
+            if (!container) return;
+            container.innerHTML = '';
+
+            items.forEach(item => {
+                const cardEl = document.createElement('div');
+                cardEl.className = 'bg-zinc-900 border border-zinc-800 rounded-3xl overflow-hidden group shadow-xl p-5 sm:p-7 space-y-4';
+                cardEl.innerHTML = `
+                    <div class="flex items-center justify-between border-b border-zinc-800 pb-3">
+                        <h3 class="text-xl font-bold text-white">${item.title}</h3>
+                        <span class="bg-zinc-800 text-zinc-300 text-xs font-medium px-3 py-1 rounded-full border border-zinc-700">${item.category || 'Karya'}</span>
+                    </div>
+                    <!-- 16:9 Aspect Ratio Container with Click to View -->
+                    <div onclick="openImageModal('${item.imgUrl}')" class="w-full aspect-video overflow-hidden rounded-2xl relative bg-zinc-950 flex items-center justify-center cursor-pointer group/img" title="Klik untuk memperbesar foto">
+                        <img src="${item.imgUrl}" alt="${item.title}" class="w-full h-full object-cover object-center group-hover/img:scale-105 transition duration-500">
+                        <div class="absolute inset-0 bg-black/40 opacity-0 group-hover/img:opacity-100 transition flex items-center justify-center text-white text-sm font-bold gap-2">
+                            <i class="fa-solid fa-expand"></i> Lihat Foto Penuh
+                        </div>
+                    </div>
+                    <div class="space-y-3 pt-1">
+                        <p class="text-xs text-zinc-400 leading-relaxed">${item.desc || ''}</p>
+                        <div class="flex items-center justify-between pt-2">
+                            <div class="flex items-center gap-3 text-zinc-400 text-sm">
+                                <a href="https://instagram.com/girinn_ajaa" target="_blank" class="hover:text-white transition"><i class="fa-brands fa-instagram"></i></a>
+                                <a href="https://wa.me/6282313222097" target="_blank" class="hover:text-white transition"><i class="fa-brands fa-whatsapp"></i></a>
+                            </div>
+                            <span class="text-[11px] text-zinc-500 font-mono">girindla.dev</span>
+                        </div>
+                    </div>
+                `;
+                container.appendChild(cardEl);
+            });
+        }
+
+        // Fetch & Render History
+        async function fetchHistoryItems() {
+            const cached = localStorage.getItem('girindla_history_cache');
+            if (cached) {
+                renderHistory(JSON.parse(cached));
+            } else {
+                renderHistory(defaultHistory);
+            }
+
+            try {
+                if (window.firebaseApp) {
+                    const { db, collection, getDocs } = window.firebaseApp;
+                    const querySnapshot = await getDocs(collection(db, 'artifacts', 'girindla_portfolio', 'public_history'));
+                    if (!querySnapshot.empty) {
+                        const items = [];
+                        querySnapshot.forEach((doc) => {
+                            items.push({ id: doc.id, ...doc.data() });
+                        });
+                        localStorage.setItem('girindla_history_cache', JSON.stringify(items));
+                        renderHistory(items);
+                    }
+                }
+            } catch (e) {
+                console.log('Using local cached history.');
+            }
+        }
+
+        function renderHistory(items) {
+            const container = document.getElementById('history-container');
+            if (!container) return;
+            container.innerHTML = '';
+
+            items.forEach(item => {
+                const el = document.createElement('div');
+                el.className = 'bg-zinc-900 border border-zinc-800 p-6 rounded-3xl space-y-3 hover:border-red-600/40 transition group';
+                el.innerHTML = `
+                    <div class="flex justify-between items-start">
+                        <span class="text-[11px] font-bold text-red-500 bg-red-500/10 px-3 py-1 rounded-full border border-red-500/20">${item.year}</span>
+                        <i class="fa-solid fa-award text-zinc-600 group-hover:text-red-500 transition"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-white">${item.org}</h3>
+                    <p class="text-xs font-semibold text-zinc-400 uppercase tracking-wide">${item.role}</p>
+                    <p class="text-xs text-zinc-400 leading-relaxed">${item.desc}</p>
+                `;
+                container.appendChild(el);
+            });
+        }
+
+        function openImageModal(url) {
+            const modal = document.getElementById('image-modal');
+            const previewImg = document.getElementById('modal-preview-img');
+            previewImg.src = url;
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+        }
+
+        function closeImageModal() {
+            const modal = document.getElementById('image-modal');
+            modal.classList.remove('flex');
+            modal.classList.add('hidden');
+        }
+
+        async function saveProfilePhoto() {
+            const urlInput = document.getElementById('admin-photo-url').value.trim();
+            const fileInput = document.getElementById('admin-photo-file').files[0];
+
+            let finalPhotoUrl = '';
+            if (urlInput) {
+                finalPhotoUrl = urlInput;
+            } else if (fileInput) {
+                finalPhotoUrl = await compressImage(fileInput, 800, 0.8);
+            }
+
+            if (finalPhotoUrl) {
+                document.getElementById('card-photo').src = finalPhotoUrl;
+                localStorage.setItem('girindla_profile_photo', finalPhotoUrl);
+                closeAdminDashboard();
+            }
+        }
+
+        // Gallery Admin Actions
+        async function saveGalleryItem() {
+            const idInput = document.getElementById('edit-item-id').value;
+            const title = document.getElementById('gallery-title').value.trim();
+            const category = document.getElementById('gallery-category').value.trim();
+            const desc = document.getElementById('gallery-desc').value.trim();
+            const urlInput = document.getElementById('gallery-img-url').value.trim();
+            const fileInput = document.getElementById('gallery-img-file').files[0];
+
+            if (!title) return;
+
+            let finalImgUrl = urlInput || 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&q=80&w=1200';
+            if (fileInput) {
+                finalImgUrl = await compressImage(fileInput, 1200, 0.8);
+            }
+
+            const itemId = idInput || 'item-' + Date.now();
+            const newItem = { id: itemId, title, category, desc, imgUrl: finalImgUrl };
+
+            let cached = JSON.parse(localStorage.getItem('girindla_gallery_cache') || JSON.stringify(defaultGallery));
+            const existingIndex = cached.findIndex(i => i.id === itemId);
+            if (existingIndex >= 0) {
+                cached[existingIndex] = newItem;
+            } else {
+                cached.unshift(newItem);
+            }
+            localStorage.setItem('girindla_gallery_cache', JSON.stringify(cached));
+            renderGallery(cached);
+
+            try {
+                if (window.firebaseApp) {
+                    const { db, setDoc, doc } = window.firebaseApp;
+                    await setDoc(doc(db, 'artifacts', 'girindla_portfolio', 'public_gallery', itemId), newItem);
+                }
+            } catch (err) {
+                console.error("Firestore write error:", err);
+            }
+
+            resetGalleryForm();
+            loadAdminGalleryList();
+        }
+
+        function loadAdminGalleryList() {
+            const listEl = document.getElementById('admin-gallery-list');
+            if (!listEl) return;
+            const cached = JSON.parse(localStorage.getItem('girindla_gallery_cache') || JSON.stringify(defaultGallery));
+            listEl.innerHTML = '';
+
+            cached.forEach(item => {
+                const row = document.createElement('div');
+                row.className = 'flex items-center justify-between bg-zinc-950 border border-zinc-800 p-3 rounded-xl';
+                row.innerHTML = `
+                    <div class="flex items-center gap-3">
+                        <img src="${item.imgUrl}" class="w-12 h-8 rounded-lg object-cover">
+                        <div>
+                            <h5 class="text-xs font-bold text-white">${item.title}</h5>
+                            <span class="text-[10px] text-zinc-400">${item.category || ''}</span>
+                        </div>
+                    </div>
+                    <div class="flex gap-2">
+                        <button onclick="editGalleryItem('${item.id}')" class="bg-zinc-800 hover:bg-zinc-700 text-zinc-300 px-3 py-1 rounded-lg text-xs transition">Edit</button>
+                        <button onclick="deleteGalleryItem('${item.id}')" class="bg-red-600/20 hover:bg-red-600/40 text-red-400 px-3 py-1 rounded-lg text-xs transition">Hapus</button>
+                    </div>
+                `;
+                listEl.appendChild(row);
+            });
+        }
+
+        function editGalleryItem(id) {
+            const cached = JSON.parse(localStorage.getItem('girindla_gallery_cache') || JSON.stringify(defaultGallery));
+            const item = cached.find(i => i.id === id);
+            if (!item) return;
+
+            document.getElementById('edit-item-id').value = item.id;
+            document.getElementById('gallery-title').value = item.title;
+            document.getElementById('gallery-category').value = item.category || '';
+            document.getElementById('gallery-desc').value = item.desc || '';
+            document.getElementById('gallery-img-url').value = item.imgUrl || '';
+            document.getElementById('form-mode-title').innerHTML = '<i class="fa-solid fa-pen text-red-500"></i> Edit Karya Galeri';
+            document.getElementById('cancel-edit-btn').classList.remove('hidden');
+        }
+
+        function resetGalleryForm() {
+            document.getElementById('edit-item-id').value = '';
+            document.getElementById('gallery-title').value = '';
+            document.getElementById('gallery-category').value = '';
+            document.getElementById('gallery-desc').value = '';
+            document.getElementById('gallery-img-url').value = '';
+            document.getElementById('gallery-img-file').value = '';
+            document.getElementById('form-mode-title').innerHTML = '<i class="fa-solid fa-plus text-red-500"></i> Tambah Karya Baru ke Galeri';
+            document.getElementById('cancel-edit-btn').classList.add('hidden');
+        }
+
+        async function deleteGalleryItem(id) {
+            let cached = JSON.parse(localStorage.getItem('girindla_gallery_cache') || JSON.stringify(defaultGallery));
+            cached = cached.filter(i => i.id !== id);
+            localStorage.setItem('girindla_gallery_cache', JSON.stringify(cached));
+            renderGallery(cached);
+            loadAdminGalleryList();
+
+            try {
+                if (window.firebaseApp) {
+                    const { db, deleteDoc, doc } = window.firebaseApp;
+                    await deleteDoc(doc(db, 'artifacts', 'girindla_portfolio', 'public_gallery', id));
+                }
+            } catch (err) {
+                console.error("Firestore delete error:", err);
+            }
+        }
+
+        // History Admin Actions
+        async function saveHistoryItem() {
+            const idInput = document.getElementById('edit-history-id').value;
+            const org = document.getElementById('history-org').value.trim();
+            const role = document.getElementById('history-role').value.trim();
+            const year = document.getElementById('history-year').value.trim();
+            const desc = document.getElementById('history-desc').value.trim();
+
+            if (!org) return;
+
+            const historyId = idInput || 'h-' + Date.now();
+            const newItem = { id: historyId, org, role, year, desc };
+
+            let cached = JSON.parse(localStorage.getItem('girindla_history_cache') || JSON.stringify(defaultHistory));
+            const existingIndex = cached.findIndex(i => i.id === historyId);
+            if (existingIndex >= 0) {
+                cached[existingIndex] = newItem;
+            } else {
+                cached.unshift(newItem);
+            }
+            localStorage.setItem('girindla_history_cache', JSON.stringify(cached));
+            renderHistory(cached);
+
+            try {
+                if (window.firebaseApp) {
+                    const { db, setDoc, doc } = window.firebaseApp;
+                    await setDoc(doc(db, 'artifacts', 'girindla_portfolio', 'public_history', historyId), newItem);
+                }
+            } catch (err) {
+                console.error("Firestore write error:", err);
+            }
+
+            resetHistoryForm();
+            loadAdminHistoryList();
+        }
+
+        function loadAdminHistoryList() {
+            const listEl = document.getElementById('admin-history-list');
+            if (!listEl) return;
+            const cached = JSON.parse(localStorage.getItem('girindla_history_cache') || JSON.stringify(defaultHistory));
+            listEl.innerHTML = '';
+
+            cached.forEach(item => {
+                const row = document.createElement('div');
+                row.className = 'flex items-center justify-between bg-zinc-950 border border-zinc-800 p-3 rounded-xl';
+                row.innerHTML = `
+                    <div>
+                        <h5 class="text-xs font-bold text-white">${item.org} (${item.year})</h5>
+                        <span class="text-[10px] text-zinc-400">${item.role}</span>
+                    </div>
+                    <div class="flex gap-2">
+                        <button onclick="editHistoryItem('${item.id}')" class="bg-zinc-800 hover:bg-zinc-700 text-zinc-300 px-3 py-1 rounded-lg text-xs transition">Edit</button>
+                        <button onclick="deleteHistoryItem('${item.id}')" class="bg-red-600/20 hover:bg-red-600/40 text-red-400 px-3 py-1 rounded-lg text-xs transition">Hapus</button>
+                    </div>
+                `;
+                listEl.appendChild(row);
+            });
+        }
+
+        function editHistoryItem(id) {
+            const cached = JSON.parse(localStorage.getItem('girindla_history_cache') || JSON.stringify(defaultHistory));
+            const item = cached.find(i => i.id === id);
+            if (!item) return;
+
+            document.getElementById('edit-history-id').value = item.id;
+            document.getElementById('history-org').value = item.org;
+            document.getElementById('history-role').value = item.role || '';
+            document.getElementById('history-year').value = item.year || '';
+            document.getElementById('history-desc').value = item.desc || '';
+            document.getElementById('history-form-title').innerHTML = '<i class="fa-solid fa-pen text-red-500"></i> Edit Riwayat Sejarah';
+            document.getElementById('cancel-history-edit').classList.remove('hidden');
+        }
+
+        function resetHistoryForm() {
+            document.getElementById('edit-history-id').value = '';
+            document.getElementById('history-org').value = '';
+            document.getElementById('history-role').value = '';
+            document.getElementById('history-year').value = '';
+            document.getElementById('history-desc').value = '';
+            document.getElementById('history-form-title').innerHTML = '<i class="fa-solid fa-plus text-red-500"></i> Tambah Riwayat Sejarah Baru';
+            document.getElementById('cancel-history-edit').classList.add('hidden');
+        }
+
+        async function deleteHistoryItem(id) {
+            let cached = JSON.parse(localStorage.getItem('girindla_history_cache') || JSON.stringify(defaultHistory));
+            cached = cached.filter(i => i.id !== id);
+            localStorage.setItem('girindla_history_cache', JSON.stringify(cached));
+            renderHistory(cached);
+            loadAdminHistoryList();
+
+            try {
+                if (window.firebaseApp) {
+                    const { db, deleteDoc, doc } = window.firebaseApp;
+                    await deleteDoc(doc(db, 'artifacts', 'girindla_portfolio', 'public_history', id));
+                }
+            } catch (err) {
+                console.error("Firestore delete error:", err);
+            }
+        }
+
+        window.addEventListener('DOMContentLoaded', () => {
+            fetchGalleryItems();
+            fetchHistoryItems();
+            const savedPhoto = localStorage.getItem('girindla_profile_photo');
+            if (savedPhoto) {
+                document.getElementById('card-photo').src = savedPhoto;
+            }
+            setTimeout(updateLanyardString, 100);
+        });
+    </script>
 </body>
 </html>
